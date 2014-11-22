@@ -28,9 +28,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " YouCompleteMe opensuse 12.2 >= glibc 2.15 lvm3.5
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'https://github.com/Rip-Rip/clang_complete.git'
-Plugin 'SuperTab'
-Plugin 'neocomplcache'
 
 "ultisnips
 " Track the engine.
