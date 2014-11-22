@@ -54,6 +54,9 @@ Plugin 'davidhalter/jedi-vim'
 "power line
 Plugin 'https://github.com/Lokaltog/vim-powerline.git'
 
+"fuzzy
+Plugin 'FuzzyFinder'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -97,6 +100,7 @@ let g:solarized_termtrans=1
 "youcompleteme
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 let g:ycm_key_list_select_completion = ['<Down>', '<ENTER>']
+
 "disable view
 set completeopt-=preview
 
@@ -120,6 +124,18 @@ let g:UltiSnipsEditSplit="vertical"
 "python autocomplete
 autocmd FileType python setlocal completeopt-=preview
 
+" 파일명 탐색시 제외할 파일 이름 패턴 지정
+let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|class|so)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+map <Leader>ff <ESC>:FufCoverageFile!<CR>
+map <Leader>fb <ESC>:FufBuffer!<CR>
+map <Leader>fd <ESC>:FufDir!<CR>
+
+"위와 같이 설정하면, “doc:txt” 로 검색시에 다음을 검색 대상으로 한다.
+let g:fuf_abbrevMap = {
+      \   "^proj:" : [
+      \     "/Project/**/",
+      \   ],
+      \ }
 
 syntax on
 
@@ -130,3 +146,7 @@ nmap <F3> :vertical res +5<cr>
 nmap <F4> :vertical res -5<cr>
 nmap <F5> :res +5<cr>
 nmap <F6> :res -5<cr>
+nmap <S-Right> :tabnext<cr>
+nmap <S-Left> :tabprevious<cr>
+nmap <S-T> :tabnew<cr>
+nmap <S-X> :tabclose<cr>
